@@ -41,7 +41,9 @@ $server= "localhost";
 $username = "jasond";
 $password = "password";
 $database = "ContactManager";
+$databaseuser = "login";
     $con = mysqli_connect($server, $username, $password, $database);
+    $con2 = mysqli_connect($server, $username, $password, $databaseuser);
 if(!$con)
 {
     die('Could not connnect to db'.mysqli_error($con));
@@ -50,19 +52,24 @@ if(!$con)
 else
 {
     
-  /* Prepared statement, stage1, prepare statement */
-  $query="SELECT * FROM Contacts WHERE Owner_UserID=?";
+    /* Prepared statement, stage1, prepare statement */
+   $query="SELECT * FROM Contacts";
   
- if (!($stmt = $con->prepare($query))) {
-    echo "Prepare failed: (" . $con->errno . ") " . $con->error;
-}
+    if (!($stmt = $con->prepare($query))) {
+      echo "Prepare failed: (" . $con->errno . ") " . $con->error;
+    }
 
-/* Prepared statement, stage 2: bind  */
-if (!$stmt->bind_param("i",$_SESSION['user_id'])) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
-}
-
-
+/*setup database query for user name from login database*/
+   if(!$con2)
+    {
+    die('Could not connnect to db'.mysqli_error($con2));
+    
+    }
+else
+  
+{
+ 
+ 
 /* Prepared statement, stage 3: execute and obtain results  */
 if(mysqli_stmt_execute($stmt) ){
     
@@ -78,6 +85,7 @@ if(mysqli_stmt_execute($stmt) ){
         <td>Phone</td>
         <td>Mobile</td>
         <td>Email</td>
+        <td>Owner</td>
         <td>click to update</td>
     </tr>";
        while (mysqli_stmt_fetch($stmt)) {  //insert table data
@@ -87,16 +95,32 @@ if(mysqli_stmt_execute($stmt) ){
         <td>".$address."</td>
         <td>".$phone."</td>
         <td>".$mobile."</td>
-        <td>".$email."</td>
-        <td> <button onclick=\"editFunction('".$id."')\" class='btn-sm btn-primary'>edit </button>    <button onclick=\"myFunction('".$id."')\" class='btn-sm btn-danger'>Delete</button></td>
-    </tr>"; 
+        <td>".$email."</td>";
+       
+       
+  
+  $query2="SELECT user_name FROM users WHERE user_id=?"; 
+    if( $stmt2 = mysqli_prepare($con2,$query2)){
+    mysqli_stmt_bind_param($stmt2,'i',$Owner_UserID);
+    mysqli_stmt_execute($stmt2);
+      mysqli_stmt_bind_result($stmt2,$Owner_name);
+     
+    mysqli_stmt_fetch($stmt2);
+      echo "<td>".$Owner_name."</td>"; 
+     mysqli_stmt_close($stmt2);
+   } //end table generator 
+
+  echo "<td>";
+         if ($Owner_UserID == $_SESSION['user_id']) echo "<button onclick=\"editFunction('".$id."')\" class='btn-sm btn-primary'>edit </button>    <button onclick=\"myFunction('".$id."')\" class='btn-sm btn-danger'>Delete</button></td>";
+         echo "</tr>";
        } //end while row 
        echo "</table> </div></div>"; // end table and div>
      mysqli_stmt_close($stmt);
    } //end table generator 
 
- mysqli_close($con); 
-}
+ mysqli_close($con);
+  mysqli_close($con2);
+}}
  ?>
     <br> 
    <a href='views/addContact.php' class="btn btn-info" role="button">Add a new Contact</a> </body>  <!--add a button commit changes -->
