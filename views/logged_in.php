@@ -78,7 +78,7 @@ if(mysqli_stmt_execute($stmt) ){
     <h3>Contact List</h1>
     <div class='table-responsive  table-striped'>" ; //setup table sytle
       echo "<table class='table'>
-    <tr>
+    <tr style='font-weight:bold;'>
         <td>id</td>
         <td>Name</td>
         <td>Address</td>
