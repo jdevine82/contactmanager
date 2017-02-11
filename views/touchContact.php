@@ -2,15 +2,17 @@
   <?php
 session_start();
 ?>
+
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<head>
   <meta charset="utf-8" />
   <title>Edit contact</title>
 </head>
-
+   
+<body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -27,8 +29,7 @@ session_start();
     </nav>
  
  <div class='container' style='padding-top:100px;'>
-   
-<body>
+
     <?php 
     $id =test_input($_GET['id']);
   if (($id == null) or ($id ==' '))   die('error no id');  
@@ -62,7 +63,7 @@ if( $stmt = mysqli_prepare($con,$query)){
 
         <form name="edit contact" method="post" action="updateContact.php">
      <div class='jumbotron'>
-    <h3>Edit Contact</h1>
+    <h3>Edit Contact</h3>
     <div class='table-responsive  table-striped'>
      <table class='table'>
             <tr> <td> <label for="id">Id</label></td><td><input id="id" type="number" name="id" value="<?php echo $id ?>" readonly/></td></tr>
@@ -100,14 +101,18 @@ if( $stmt = mysqli_prepare($con,$query)){
                     <label for="email">Email</label>
                 </td>
                 <td>
-                    <input id="email" type="email" name="email" size="50" maxlenght="50" tabindex="5" value="<?php echo $email?>"> </td>
+                    <input id="email" type="email" name="email" size="50" maxlength="50" tabindex="5" value="<?php echo $email?>"> </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <input type="submit" name="submit" value="submit" tabindex="6" class="btn btn-primary"> </td>
             </tr>
         </table>
+       </div>
+       </div>
     </form>
+ 
+  </div> <!--end containter-->
 </body>
 
 </html>

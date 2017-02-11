@@ -1,3 +1,6 @@
+
+<!DOCTYPE html>
+<head>
 <?php
 session_start();
 ?>
@@ -5,11 +8,12 @@ session_start();
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<html>
 
-<head>
-    <title>deleteContact</title>
+
+
+    <title>Delete  Contact</title>
 </head>
+<body>
  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -27,7 +31,7 @@ session_start();
  
  <div class='container' style='padding-top:100px;'>
    
-<body>
+
  <?php
 $id = test_input($_GET['id']);
 if (($id ==null) or ($id == ' ')) die('You must have a valid id from the Contacts');
@@ -51,7 +55,7 @@ else
   {
    mysqli_stmt_bind_param($stmt,'i',$id);
     if(mysqli_stmt_execute($stmt)) { 
-    echo "<b style='color:green'> <p>The contact has been deleted</p> <br>";
+    echo "<b style='color:green'> The contact has been deleted</b> <br>";
     }  //if will be true if execution of sql is finish successfully
     $stmt->close();
      
@@ -76,7 +80,7 @@ function test_input($data) {
 }
 
 ?>
-  <br> <a href='../index.php' class='btn-sm btn-primary'>Display Contacts</a></div><!-- end container>
+  <br> <a href='../index.php' class='btn-sm btn-primary'>Display Contacts</a></div><!-- end container-->
    </body>
 
 </html>

@@ -3,15 +3,17 @@
   <?php
 session_start();
 ?>
+  <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<head>
+
   <meta charset="utf-8" />
   <title>Add contact</title>
 </head>
-
+   
+<body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -30,11 +32,10 @@ session_start();
  <div class='container' style='padding-top:100px;'>
    
 
-   
-<body>
+
   <form name="Add contact" method="post" action="writeContact.php">
   <div class='jumbotron'>
-    <h3>Add Contact</h1>
+    <h3>Add Contact</h3>
     <div class='table-responsive  table-striped'>
      <table class='table'>
       <tr>
@@ -71,14 +72,17 @@ session_start();
           <label for="email">Email</label>
         </td>
         <td>
-          <input id="email" type="email" name="email" size="50" maxlenght="50" tabindex="5"> </td>
+          <input id="email" type="email" name="email" size="50" maxlength="50" tabindex="5"> </td>
       </tr>
       <tr>
         <td colspan="2">
-          <input type="submit" name="submit" value="submit" tabindex="6" class="btn btn-info" role="button"> </td>
+          <input type="submit" name="submit" value="submit" tabindex="6" class="btn btn-info"> </td>
       </tr>
     </table>
+    </div>
+    </div>
   </form>
+  </div>
 </body>
 
 </html>

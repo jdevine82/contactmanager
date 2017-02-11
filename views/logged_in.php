@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 
-<!-- This page is displayed once the user has logged it. It acts as the homepage-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <head>
     <meta charset="utf-8"/>
     <title>Contacts Home</title>
+  <!-- This page is displayed once the user has logged it. It acts as the homepage-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -75,7 +77,7 @@ if(mysqli_stmt_execute($stmt) ){
     
       mysqli_stmt_bind_result($stmt,$id,$name,$address,$phone,$mobile,$email,$Owner_UserID);
   echo "<div class='jumbotron'>
-    <h3>Contact List</h1>
+    <h3>Contact List</h3>
     <div class='table-responsive  table-striped'>" ; //setup table sytle
       echo "<table class='table'>
     <tr style='font-weight:bold;'>
@@ -114,7 +116,7 @@ if(mysqli_stmt_execute($stmt) ){
          if ($Owner_UserID == $_SESSION['user_id']) echo "<button onclick=\"editFunction('".$id."')\" class='btn-sm btn-primary'>edit </button>    <button onclick=\"myFunction('".$id."')\" class='btn-sm btn-danger'>Delete</button></td>";
          echo "</tr>";
        } //end while row 
-       echo "</table> </div></div>"; // end table and div>
+       echo "</table> </div></div> "; // end table and div>
      mysqli_stmt_close($stmt);
    } //end table generator 
 
@@ -123,7 +125,7 @@ if(mysqli_stmt_execute($stmt) ){
 }}
  ?>
     <br> 
-   <a href='views/addContact.php' class="btn btn-info" role="button">Add a new Contact</a> </body>  <!--add a button commit changes -->
+   <a href='views/addContact.php' class="btn btn-info" role="button">Add a new Contact</a>   <!--add a button commit changes -->
     <script>
         
 function myFunction(x) {
@@ -146,6 +148,6 @@ function editFunction(x){
 
   </div>  <!--end container div-->
 
-
+</body>
 </html>
 

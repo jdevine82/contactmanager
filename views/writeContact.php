@@ -1,16 +1,15 @@
-
+<!DOCTYPE html>
 
 <?php
 session_start();
 ?>
-
-  <html>
+  <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <head>
-    <title>addcontacts</title>
+
+    <title>Add Contacts</title>
   </head>
 
   <body>
@@ -63,7 +62,7 @@ else
   if ($stmt = $con->prepare("INSERT INTO Contacts (Name,Address,Phone,Mobile,Email,Owner_UserId) VALUES (?,?,?,?,?,?)"))
   {
    $stmt->bind_param('ssssss',$name,$address,$phone,$mobile,$email,$Owner_UserId) ;
-    if( $stmt->execute()) { echo "<b style='color:green'> <p>The contact has been added</p> <br>";};  //if will be true if execution of sql is finish successfully
+    if( $stmt->execute()) { echo "<b style='color:green'> The contact has been added</b> <br>";};  //if will be true if execution of sql is finish successfully
     $stmt->close();
      
   }
@@ -88,8 +87,10 @@ function test_input($data) {
 }
 
 ?>
-      <br> <a href='../index.php' class='btn-sm btn-primary'>Display Contacts</a> </body>
-    </div>
+      <br> <a href='../index.php' class='btn-sm btn-primary'>Display Contacts</a> 
+   </div>
+   </body>
+    
   
   
   </html>

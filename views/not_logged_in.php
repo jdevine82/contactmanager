@@ -1,7 +1,13 @@
+<!DOCTYPE html>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+   <meta charset="UTF-8">
+<title>Contact Manager</title>
+  </head>
+<body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -16,7 +22,10 @@
          
       </div>
     </nav>
- 
+
+
+  
+
  <div class='container' style='padding-top:100px;'>
    
 
@@ -48,8 +57,10 @@ if (isset($login)) {
     <input id="login_input_password" class="login_input" type="password" name="user_password" autocomplete="off" required />
     </div>
     <div class="form-group">
-    <input type="submit" name="login" value="Log in" class="btn btn-info" role="button" />
+    <input type="submit" name="login" value="Log in" class="btn btn-info" />
     </div>
   </form>
 
   <a href="/views/register.php">Register new account</a>
+  </div> 
+   </body>

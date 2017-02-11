@@ -1,7 +1,14 @@
+
+<!DOCTYPE html>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+   <meta charset="UTF-8">
+<title>Contact Manager</title>
+  </head>
+<body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -16,9 +23,13 @@
          
       </div>
     </nav>
- 
+
+
+  
+
  <div class='container' style='padding-top:100px;'>
    
+
 
 <?php
 // show potential errors / feedback (from registration object)
@@ -68,4 +79,5 @@ if (isset($registration)) {
 <!-- backlink -->
 <a href="../index.php">Back to Login Page</a>
    
-   </div>  <!-- end container>
+   </div>  <!-- end container-->
+</body>

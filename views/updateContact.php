@@ -1,15 +1,15 @@
 <?php
 session_start();
 ?>
+<!DocType html>
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<html>
-
-<head>
-    <title>Update Contact</title>
+<title>Update Contact</title>
 </head>
+     
+<body>
  <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -26,8 +26,7 @@ session_start();
     </nav>
  
  <div class='container' style='padding-top:100px;'>
-   
-<body>
+
     <?php
 $id = test_input($_POST['id']);
 $name =test_input($_POST['name']);
@@ -59,7 +58,7 @@ else
   {
    mysqli_stmt_bind_param($stmt,'sssssi',$name,$address,$phone,$mobile,$email,$id);
     if(mysqli_stmt_execute($stmt)) { 
-    echo "<b style='color:green'> <p>The contact has been updated</p> <br>";
+    echo "<b style='color:green'> The contact has been updated </b> <br>";
     }  //if will be true if execution of sql is finish successfully
     $stmt->close();
      
@@ -86,6 +85,6 @@ function test_input($data) {
 
 ?>
 
-        <br> <a href='../index.php'>Display Contacts</a> </body>
+   <br> <a href='../index.php'>Display Contacts</a> </div></body>
 
 </html>
