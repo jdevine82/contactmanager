@@ -81,14 +81,14 @@ if(mysqli_stmt_execute($stmt) ){
     <div class='table-responsive  table-striped'>" ; //setup table sytle
       echo "<table class='table'>
     <tr style='font-weight:bold;'>
-        <td>id</td>
-        <td>Name</td>
-        <td>Address</td>
-        <td>Phone</td>
-        <td>Mobile</td>
-        <td>Email</td>
-        <td>Owner</td>
-        <td>click to update</td>
+        <th>id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Owner</th>
+        <th>click to update</th>
     </tr>";
        while (mysqli_stmt_fetch($stmt)) {  //insert table data
            echo " <tr>
